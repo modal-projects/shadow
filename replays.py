@@ -308,7 +308,8 @@ def export(run):
 
     sys.path.insert(0, "/root/vendor/shadowbench")
     from shadowbench import curation
-    from shadowbench.native_environment import meshes_for, posture_effort
+    from shadowbench.native_environment import meshes_for
+    from shadowbench.wrist_posture import posture_effort
     from shadowbench.pose import Pose
     from shadowbench.render import shadow
     from shadowbench.score import grade
