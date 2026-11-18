@@ -89,16 +89,26 @@ function App() {
       slot.current = round.round;
       setActive(true);
       stage.current.reset();
-      const interval = ROUND_MS / frames.length;
-      frames.forEach((frame, index) => {
-        timers.current.push(
-          window.setTimeout(() => {
-            if (!finished.current && runId.current === run) {
-              stage.current?.pose(frame);
-            }
-          }, index * interval),
+      const t0 = performance.now();
+      const tick = (now: number) => {
+        if (finished.current || runId.current !== run) return;
+        const t = Math.min(1, (now - t0) / ROUND_MS);
+        const pos = t * (frames.length - 1);
+        const i = Math.floor(pos);
+        const f = pos - i;
+        const a = frames[i];
+        const b = frames[Math.min(i + 1, frames.length - 1)];
+        stage.current?.pose(
+          a.map((ma, side) => {
+            const mb = b[side];
+            const out = new Float32Array(ma.length);
+            for (let j = 0; j < ma.length; j++) out[j] = ma[j] + (mb[j] - ma[j]) * f;
+            return out;
+          }),
         );
-      });
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
       timers.current.push(
         window.setTimeout(() => {
           if (runId.current === run) {
