@@ -1,0 +1,48 @@
+:root {
+  --color-v2-primary-black: #040804;
+  --color-v2-primary-neutral-100: #e3e5e1;
+  --color-v2-primary-neutral-200: #daded7;
+  --color-v2-primary-neutral-400: #c4c7c1;
+  --color-v2-primary-neutral-500: #a8aba6;
+  --color-v2-primary-neutral-600: #6c6e6a;
+  --color-v2-primary-neutral-700: #4b4d4a;
+  --color-v2-primary-green-100: #9efb87;
+  --color-v2-primary-green-200: #7fee64;
+  --accent: #7fee64;
+  --panel: #131412;
+  --stroke: #ffffff26;
+  --ink: #e3e5e1;
+  --font: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ink);
+  background: #040804;
+  font: 14px var(--font);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { height: 100dvh; position: relative; overflow: hidden; }
+.stage { position: absolute; inset: 0; }
+.stage canvas { display: block; touch-action: none; }
+.prompt { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); width: min(1004px, calc(100% - 76px)); display: flex; flex-direction: column; gap: 10px; }
+.reply { position: absolute; bottom: 64px; left: 0; right: 0; height: 32px; font: italic 22px/1.4 system-ui; overflow: hidden; text-align: center; white-space: nowrap; text-overflow: ellipsis; }
+.reply.revealed { height: auto; font-style: normal; white-space: normal; }
+.speech-error { color: #fb7455; border: 1px solid currentColor; padding: 8px 12px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; }
+.composer { display: flex; gap: 10px; }
+.game-control { position: absolute; top: 32px; left: 38px; min-height: 50px; display: flex; align-items: center; }
+.start { min-height: 50px; font-family: var(--font); }
+.composer input { flex: 1; min-width: 0; background: var(--panel); color: var(--ink); border: 1px solid var(--stroke); border-radius: 5px; padding: 16px; font: inherit; transition: border-color .15s; }
+.composer input:focus { outline: none; border-color: var(--accent); }
+.composer button, .start { display: inline-flex; align-items: center; gap: 6px; background: #7fee64; border: 0; border-radius: 4px; padding: 0 20px; color: #040804; font-weight: bold; cursor: pointer; transition: opacity .15s; }
+.composer button:hover:not(:disabled), .start:hover:not(:disabled) { opacity: .8; }
+.composer button:disabled, .start:disabled { cursor: default; opacity: .55; }
+.composer .give-up { background: transparent; color: white; border: 1px solid var(--stroke); }
+.spin { animation: spin .9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 760px) {
+  .game-control { top: 24px; left: 22px; }
+  .prompt { bottom: max(16px, env(safe-area-inset-bottom)); width: calc(100% - 30px); }
+  .composer input { font-size: 16px; }
+  .composer button { padding: 0 12px; white-space: nowrap; }
+  .reply { font-size: 18px; }
+}
