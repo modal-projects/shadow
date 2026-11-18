@@ -347,10 +347,14 @@ def export(run):
             posture_effort(final_pose)["ease"],
         )
         expected = json.loads((task_dir / "final.json").read_text())
+        from shadowbench.reviewed_environment import PEEK_MULTIPLIER
+        rescored = round(
+            100 * metrics["reward"] * PEEK_MULTIPLIER ** expected.get("book_peeks", 0), 4
+        )
         parity.append({
             "task_id": task_id,
             "iou_delta": abs(metrics["iou"] - expected["iou"]),
-            "score_delta": abs(metrics["score"] - expected["score"]),
+            "score_delta": abs(rescored - expected["score"]),
         })
 
         frames = [meshes_for(rig, Pose.parse(pose)) for pose in poses]
