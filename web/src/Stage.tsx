@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
 
 type Side = "left" | "right";
 export type StageControls = { pose: (vertices: Float32Array[]) => void; reset: () => void };
@@ -52,6 +53,38 @@ export default function Stage({ onError, onReady }: {
     light.shadow.bias = -0.00005;
     light.shadow.normalBias = 0.001;
     scene.add(light);
+    const flashlight = new THREE.Group();
+    flashlight.position.copy(light.position);
+    scene.add(flashlight);
+    const loader = new GLTFLoader();
+    loader.setMeshoptDecoder(MeshoptDecoder);
+    loader.load("/flashlight.glb", ({ scene: model }) => {
+      if (abort.signal.aborted) return;
+      model.scale.setScalar(2);
+      model.traverse((object) => {
+        if (!(object instanceof THREE.Mesh)) return;
+        object.castShadow = false;
+        for (const material of [object.material].flat() as THREE.MeshStandardMaterial[]) {
+          material.emissive.set("#ffffff");
+          material.emissiveMap = material.map;
+          material.emissiveIntensity = material.name.includes("black") || object.name.startsWith("LED_emitter") ? 2.5 : 0.3;
+        }
+      });
+      flashlight.add(model);
+    }, undefined, () => {
+      if (!abort.signal.aborted) onError("Could not load the flashlight model");
+    });
+    const beam = new THREE.Mesh(
+      new THREE.ConeGeometry(0.7, light.position.z, 48, 1, true).rotateX(Math.PI / 2),
+      new THREE.ShaderMaterial({
+        uniforms: { glow: { value: new THREE.Color(color("primary-neutral-100")) } },
+        vertexShader: "varying vec2 vUv; varying float facing; void main() { vUv = uv; vec4 view = modelViewMatrix * vec4(position, 1.0); facing = abs(dot(normalize(normalMatrix * normal), normalize(-view.xyz))); gl_Position = projectionMatrix * view; }",
+        fragmentShader: "uniform vec3 glow; varying vec2 vUv; varying float facing; void main() { float fade = smoothstep(0.0, 0.25, vUv.y); gl_FragColor = vec4(glow, 0.1 * fade * facing); }",
+        transparent: true, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, depthTest: true, depthWrite: false,
+      }),
+    );
+    beam.position.copy(light.position).multiplyScalar(0.5);
+    scene.add(beam);
 
     const wall = new THREE.Mesh(
       new THREE.PlaneGeometry(2.4, 1.9),
