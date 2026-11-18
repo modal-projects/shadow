@@ -23,6 +23,15 @@ body { margin: 0; }
 main { height: 100dvh; position: relative; overflow: hidden; }
 .stage { position: absolute; inset: 0; }
 .stage canvas { display: block; touch-action: none; }
+header { position: absolute; top: 24px; right: 38px; display: flex; align-items: center; justify-content: flex-end; font-family: system-ui, sans-serif; }
+.head-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+.eyebrow a { color: inherit; text-decoration: none; }
+.eyebrow { color: var(--accent); letter-spacing: .16em; font-size: 13px; text-decoration: none; text-transform: uppercase; padding: 8px 2px; font-family: var(--font); }
+.eyebrow:hover { opacity: .7; text-decoration: underline; text-underline-offset: 3px; }
+.modal-line { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); font-size: 12px; }
+.modal-link { display: inline-flex; transition: opacity .15s; padding: 8px 0; }
+.modal-link:hover { opacity: .7; }
+.modal-logo { height: 15px; display: block; }
 .prompt { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); width: min(1004px, calc(100% - 76px)); display: flex; flex-direction: column; gap: 10px; }
 .reply { position: absolute; bottom: 64px; left: 0; right: 0; height: 32px; font: italic 22px/1.4 system-ui; overflow: hidden; text-align: center; white-space: nowrap; text-overflow: ellipsis; }
 .reply.revealed { height: auto; font-style: normal; white-space: normal; }
@@ -40,6 +49,7 @@ main { height: 100dvh; position: relative; overflow: hidden; }
 @keyframes spin { to { transform: rotate(360deg); } }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 @media (max-width: 760px) {
+  header { top: 16px; right: 15px; }
   .game-control { top: 24px; left: 22px; }
   .prompt { bottom: max(16px, env(safe-area-inset-bottom)); width: calc(100% - 30px); }
   .composer input { font-size: 16px; }

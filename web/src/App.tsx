@@ -42,6 +42,7 @@ function App() {
   const runId = useRef(0);
   const timers = useRef<number[]>([]);
   const finished = useRef(false);
+  const bare = new URLSearchParams(window.location.search).has("bare");
 
   const clearTimers = () => {
     timers.current.forEach((timer) => window.clearTimeout(timer));
@@ -57,6 +58,7 @@ function App() {
   const onReady = useCallback((controls: StageControls) => {
     stage.current = controls;
     setReady(true);
+    if (new URLSearchParams(window.location.search).has("bare")) start();
   }, []);
 
   async function start() {
@@ -148,10 +150,10 @@ function App() {
     <main>
       <Stage onError={setError} onReady={onReady} />
       <div className="game-control">
-        {loading && (
+        {loading && !bare && (
           <svg className="spin" aria-label="Loading replay" role="status" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.56" /></svg>
         )}
-        {(!active || reveal) && !judging && !loading && (
+        {!bare && (!active || reveal) && !judging && !loading && (
           <button type="button" className="start" disabled={!ready} onClick={start}>
             {reveal || slot.current !== null ? "Play again" : "Start"}
           </button>
@@ -160,7 +162,7 @@ function App() {
           <svg className="spin" aria-label="Judging" role="status" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.56" /></svg>
         )}
       </div>
-      {(active || reveal || error) && (
+      {!bare && (active || reveal || error) && (
         <form className="prompt" onSubmit={(event) => { event.preventDefault(); submit(); }}>
           <div className={`reply${reveal ? " revealed" : ""}`} role="status">
             {reveal
