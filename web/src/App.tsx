@@ -164,7 +164,7 @@ function App() {
       </div>
       {!bare && <header>
         <div className="head-meta">
-          <span className="eyebrow"><a href="https://modal.com/library/qwen/qwen3-8-max-vl" target="_blank" rel="noreferrer">Qwen3.8 Max VL</a></span>
+          <span className="eyebrow"><a href="https://modal.com/library/deepseek/deepseek-v4-1-flash-1017" target="_blank" rel="noreferrer">DeepSeek V4.1 Flash 1017</a></span>
           <span className="modal-line">on <a className="modal-link" href="https://modal.com" target="_blank" rel="noreferrer" aria-label="Modal"><img className="modal-logo" src="/modal-logo.png" alt="Modal" /></a></span>
         </div>
       </header>}
