@@ -39,7 +39,8 @@ JUDGE_SYSTEM = (
     "with \"<guesses_left> guesses left.\" For a correct guess "
     "acknowledge the win. "
     "If give_up is true set correct to false and reveal the subject in one "
-    "sentence."
+    "natural sentence with no hint, no guesses-left count, and no mention "
+    "of flags or game mechanics."
 )
 
 
@@ -69,22 +70,27 @@ def judge_endpoint():
 
 def judge_reply(data):
     try:
-        content = data["choices"][0]["message"]["content"]
+        message = data["choices"][0]["message"]
     except (KeyError, IndexError, TypeError):
         raise ValueError("judge returned no content")
-    if not isinstance(content, str):
-        raise ValueError("judge returned no content")
-    text = content.strip()
-    if text.startswith("```"):
-        text = re.sub(r"^```[a-zA-Z]*\s*", "", text)
-        text = re.sub(r"\s*```$", "", text).strip()
-    start = text.find("{")
-    if start < 0:
+    verdict = None
+    for part in (message.get("content"), message.get("reasoning_content")):
+        if not isinstance(part, str):
+            continue
+        text = part.strip()
+        if text.startswith("```"):
+            text = re.sub(r"^```[a-zA-Z]*\s*", "", text)
+            text = re.sub(r"\s*```$", "", text).strip()
+        start = text.find("{")
+        if start < 0:
+            continue
+        try:
+            verdict, _ = json.JSONDecoder().raw_decode(text[start:])
+            break
+        except json.JSONDecodeError:
+            continue
+    if verdict is None:
         raise ValueError("judge returned no JSON object")
-    try:
-        verdict, _ = json.JSONDecoder().raw_decode(text[start:])
-    except json.JSONDecodeError as error:
-        raise ValueError(f"judge returned invalid JSON: {error}")
     correct = verdict.get("correct") if isinstance(verdict, dict) else None
     reply = verdict.get("reply") if isinstance(verdict, dict) else None
     if not isinstance(correct, bool) or not isinstance(reply, str) or not reply.strip():
@@ -111,7 +117,7 @@ def judge(subject, guess, previous, give_up, guesses_left):
     payload = {
         "model": endpoint.model_id,
         "messages": messages,
-        "max_tokens": 512,
+        "max_tokens": 4096,
         "response_format": {"type": "json_object"},
         "chat_template_kwargs": {"thinking": False, "enable_thinking": False},
     }
@@ -119,7 +125,7 @@ def judge(subject, guess, previous, give_up, guesses_left):
     for _ in range(3):
         try:
             correct, reply = judge_reply(
-                endpoint.request("POST", "chat/completions", json=payload)
+                judge_endpoint().request("POST", "chat/completions", json=payload)
             )
             break
         except Exception as error:
@@ -187,21 +193,18 @@ def create_web(static_dir=None):
         if body.round >= len(index):
             raise HTTPException(404, "unknown round")
         subject = index[body.round]["subject"]
-        if body.give_up:
-            return {
-                "correct": False,
-                "reply": f'It was "{subject}".',
-                "subject": subject,
-            }
         guess_text = body.guess.strip()
-        if not guess_text:
+        if not body.give_up and not guess_text:
             raise HTTPException(400, "empty guess")
-        if len(body.previous) >= MAX_WRONG:
-            return {
-                "correct": False,
-                "reply": f'Out of guesses. It was "{subject}".',
-                "subject": subject,
-            }
+        if body.give_up or len(body.previous) >= MAX_WRONG:
+            try:
+                _, reply = judge(subject, guess_text, body.previous, True, 0)
+            except Exception:
+                reply = f'It was "{subject}".'
+            words = [w for w in re.findall(r"[a-z]+", subject.lower()) if len(w) > 3]
+            if not any(w in reply.lower() for w in words):
+                reply = f'It was "{subject}".'
+            return {"correct": False, "reply": reply, "subject": subject}
         try:
             correct, reply = judge(
                 subject,
