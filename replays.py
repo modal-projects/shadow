@@ -36,6 +36,9 @@ RUN_LOCK = threading.Lock()
 RUNS = modal.Volume.from_name(
     "shadowbench-runs", environment_name="demos", create_if_missing=True
 )
+REPLAYS = modal.Volume.from_name(
+    "shadow-replays", environment_name="demos", create_if_missing=True
+)
 
 image = (
     modal.Image.debian_slim(python_version="3.12")
@@ -235,6 +238,172 @@ def init_run(run, meta, selected):
     return incomplete
 
 
+
+
+MAX_FRAMES = 40
+
+
+def frame_poses(task_dir):
+    entries = [
+        json.loads(line)
+        for line in (task_dir / "trajectory.jsonl").read_text().splitlines()
+        if line.strip()
+    ]
+    poses = [entries[0]["before"]]
+    poses += [
+        entry["after"]
+        for entry in entries
+        if entry.get("accepted") and entry.get("after_hash") != entry.get("before_hash")
+    ]
+    final = entries[-1]["after"]
+    if poses[-1] != final:
+        raise ValueError(f"{task_dir.name}: last frame is not the submitted final pose")
+    if len(poses) > MAX_FRAMES:
+        indices = sorted({
+            round(i * (len(poses) - 1) / (MAX_FRAMES - 1)) for i in range(MAX_FRAMES)
+        })
+        poses = [poses[i] for i in indices]
+    return poses
+
+
+def task_dirs(run_dir):
+    dirs = sorted(
+        path
+        for path in run_dir.iterdir()
+        if (path / "trajectory.jsonl").exists()
+        and (path / "result.json").exists()
+        and (path / "final.json").exists()
+        and (path / "task.json").exists()
+    )
+    if not dirs:
+        raise ValueError(f"no task dirs in {run_dir}")
+    return dirs
+
+
+def encode_bin(frames):
+    import numpy as np
+
+    count = len(frames)
+    vertices = next(iter(frames[0].values())).vertices.shape[0]
+    header = np.array([count, vertices], dtype="<i4")
+    body = np.stack(
+        [
+            np.clip(np.round(mesh.vertices * 10000), -32768, 32767).astype("<i2")
+            for frame in frames
+            for side in ("left", "right")
+            for mesh in [frame[side]]
+        ]
+    )
+    return header.tobytes() + body.tobytes()
+
+
+@app.function(
+    image=image,
+    volumes={"/runs": RUNS, "/replays": REPLAYS},
+    cpu=8,
+    timeout=1800,
+)
+def export(run):
+    import numpy as np
+
+    sys.path.insert(0, "/root/vendor/shadowbench")
+    from shadowbench import curation
+    from shadowbench.native_environment import meshes_for, posture_effort
+    from shadowbench.pose import Pose
+    from shadowbench.render import shadow
+    from shadowbench.score import grade
+    from shadowbench.ultraleap import NativeRig
+
+    REST = Pose(
+        np.zeros(46),
+        np.array([[0.1, -0.12, 1.3], [-0.1, -0.12, 1.3]]),
+        np.array([[1.0, 0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]]),
+    )
+
+    RUNS.reload()
+    dirs = sorted(
+        d for name in run.split(",") for d in task_dirs(Path("/runs") / name)
+    )
+    for stale in Path("/replays").glob("*.bin"):
+        stale.unlink()
+    rig = NativeRig()
+    order = list(range(len(dirs)))
+    random.Random(0).shuffle(order)
+    index = [None] * len(dirs)
+    parity = []
+
+    for slot, task_index in enumerate(order):
+        task_dir = dirs[task_index]
+        task_id = task_dir.name
+        result = json.loads((task_dir / "result.json").read_text())
+        task_json = json.loads((task_dir / "task.json").read_text())
+
+        poses = frame_poses(task_dir)
+        final_pose = Pose.parse(poses[-1])
+        metrics = grade(
+            shadow(meshes_for(rig, final_pose)),
+            curation.load_revision(task_id, task_json["revision"]),
+            posture_effort(final_pose)["ease"],
+        )
+        expected = json.loads((task_dir / "final.json").read_text())
+        parity.append({
+            "task_id": task_id,
+            "iou_delta": abs(metrics["iou"] - expected["iou"]),
+            "score_delta": abs(metrics["score"] - expected["score"]),
+        })
+
+        frames = [meshes_for(rig, Pose.parse(pose)) for pose in poses]
+        (Path("/replays") / f"{slot}.bin").write_bytes(encode_bin(frames))
+
+        from shadowbench.render import wall
+
+        shots = Path("/replays") / "shots"
+        shots.mkdir(exist_ok=True)
+        wall(shadow(meshes_for(rig, final_pose)), title=task_json["title"]).save(
+            shots / f"{task_id}.png"
+        )
+        index[slot] = {
+            "subject": task_json["title"],
+            "task_id": task_id,
+            "model": result.get("model") or result.get("endpoint_model"),
+            "final_score": result["final"]["score"],
+            "frames": len(poses),
+        }
+
+    rest_meshes = meshes_for(rig, REST)
+    rig_payload = {
+        "vertices": {
+            side: base64.b64encode(mesh.vertices.astype("<f4").tobytes()).decode()
+            for side, mesh in rest_meshes.items()
+        },
+        "faces": {
+            side: base64.b64encode(mesh.faces.astype("<u2").tobytes()).decode()
+            for side, mesh in rest_meshes.items()
+        },
+    }
+    (Path("/replays") / "rig.json").write_text(
+        json.dumps(rig_payload, separators=(",", ":"))
+    )
+    (Path("/replays") / "index.json").write_text(
+        json.dumps(index, separators=(",", ":")) + "\n"
+    )
+
+    worst_iou = max(p["iou_delta"] for p in parity)
+    worst_score = max(p["score_delta"] for p in parity)
+    print(f"built {len(index)} replays + rig.json -> shadow-replays")
+    print(
+        f"parity: max |iou delta| = {worst_iou:.3e}, max |score delta| = {worst_score:.3e}"
+    )
+    for row in parity:
+        if row["iou_delta"] or row["score_delta"]:
+            print("  nonzero:", row)
+    if worst_iou or worst_score:
+        raise ValueError(
+            f"export parity drift: iou {worst_iou:.3e}, score {worst_score:.3e}"
+        )
+    REPLAYS.commit()
+
+
 @app.local_entrypoint()
 def main(
     run: str,
@@ -243,6 +412,9 @@ def main(
     effort: str = "medium",
     model: str = MODEL,
 ):
+    if build:
+        export.remote(run)
+        return
     sys.path.insert(0, str(ROOT / "vendor" / "shadowbench"))
     from shadowbench import tasks
 
