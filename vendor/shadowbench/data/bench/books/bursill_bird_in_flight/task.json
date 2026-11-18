@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_bird_in_flight",
+  "title": "A Bird in Flight",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 5"
+  },
+  "trace": {
+    "source_crop": [
+      4,
+      10,
+      468,
+      286
+    ],
+    "source_shadow_bounds": [
+      19,
+      72,
+      447,
+      286
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.4,
+        0.44,
+        0.59,
+        0.53
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.0046728971962617,
+        0.0,
+        21.911214953271013
+      ],
+      [
+        0.0,
+        1.0046728971962617,
+        96.66355140186914
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.07166280643016029,
+  "known_foreground_pixels": 40482,
+  "files": {
+    "source.png": "c3a31d4bb177ded5cff000d30df43e1a4ebc3e480fd584a88e28277b1582bd44",
+    "trace_review.png": "fb1aea54550b92394ff1402df0042bda8f2d3622c67b09f5291b66b41133d560",
+    "target.png": "588f790282c17719bb1f2ad2ef5a980e6a435582ce5401904dbd23516f2df21b",
+    "known.png": "88af0eb873f80f5b283945dd553f561e9f61ba7d3ce73a7e20469b98115fca6c",
+    "target.svg": "5572f68fc636321418ceba164b0529ffb1843cbc475e81187c53d91a4b683ca7"
+  },
+  "source_original_sha256": "9929cd7d53f1810e490bf7a19f760526ec98c3b6136ee593f28f2a2b78598afd"
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_goat",
+  "title": "Goat",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 6"
+  },
+  "trace": {
+    "source_crop": [
+      154,
+      21,
+      462,
+      496
+    ],
+    "source_shadow_bounds": [
+      154,
+      165,
+      386,
+      394
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.32,
+        0.27,
+        0.85,
+        0.7
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.4192139737991267,
+        0.0,
+        -127.1877729257642
+      ],
+      [
+        0.0,
+        1.4192139737991267,
+        -175.17030567685595
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.98341495266079,
+  "known_foreground_pixels": 762,
+  "files": {
+    "source.png": "30f4aac3ed0b8a66aa12a4ce8b842264804aaf8bce42035063374cbccf3a0ea4",
+    "trace_review.png": "bfb3587acc58eaeb89ef5057c785a43964515a368d2cc8d9b4b563ba22d04038",
+    "target.png": "b597296586b011da16d103102f1a0ca3d8f0054a41af3a7ae222840df42b2784",
+    "known.png": "665a97146760c9e6e042a00d212d21e6015df0df6ac8493828049fd6deb4f805",
+    "target.svg": "45271cff9b8cf4c6a94eba626df21d8df8fec594b756ff06f9b4a7336caec848"
+  },
+  "source_original_sha256": "90c677ab514eb2723255750ed2b607971a417a69c0679f66cc87e2e962e1b9a3"
+}

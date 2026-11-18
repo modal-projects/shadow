@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_camel",
+  "title": "Camel",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Frontispiece"
+  },
+  "trace": {
+    "source_crop": [
+      235,
+      21,
+      465,
+      502
+    ],
+    "source_shadow_bounds": [
+      235,
+      121,
+      438,
+      422
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.49,
+        0.28,
+        0.69,
+        0.81
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.079734219269103,
+        0.0,
+        -107.3305647840532
+      ],
+      [
+        0.0,
+        1.079734219269103,
+        -71.64784053156149
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.4859830550710192,
+  "known_foreground_pixels": 16502,
+  "files": {
+    "source.png": "b322570cc4d6736ad613adfaaa7012b4a359a73b3eb3f162616c1c5afd8131f7",
+    "trace_review.png": "8e54b5ed936b1b39f3942765537c051a1fe933407a7a6a0e64b2b5d5685b84ef",
+    "target.png": "0054d0a2d83404b0eb46089ecdb83e1756c4bc815c393c9725ccf1bfe14347f3",
+    "known.png": "455c93db402beac9e6719926716837f2ca2bbaf85ebc85952bcf4d38849b3a9b",
+    "target.svg": "5e60e9b8c3ca766172880316ef5861fc05f030182341c68de78843fd5b4d3233"
+  },
+  "source_original_sha256": "22507ee772fb44a8afc04bb0866ccf08fa0a26e61685b9e7dee37920daead6b6"
+}

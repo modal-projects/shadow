@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_fright",
+  "title": "Fright",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 14"
+  },
+  "trace": {
+    "source_crop": [
+      189,
+      21,
+      468,
+      502
+    ],
+    "source_shadow_bounds": [
+      258,
+      169,
+      431,
+      374
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.39,
+        0.21,
+        0.75,
+        0.83
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.5853658536585367,
+        0.0,
+        -290.1585365853658
+      ],
+      [
+        0.0,
+        1.5853658536585367,
+        -208.92682926829275
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.5915046885673477,
+  "known_foreground_pixels": 19734,
+  "files": {
+    "source.png": "91da90924512a5976bc8e63ba1af7548d387c53dc2e972965aa572dad7b4d382",
+    "trace_review.png": "7443d2889ea86d0206ac6e0364d73e0743323512ae3d1182be6a4e4640fc3c37",
+    "target.png": "03102fc24c7c20837bfb1ea859d0a172b3f2b725109e6d74ffdf00390a7766cf",
+    "known.png": "a3b6f9d5401041a4b7059b106808b4121c051f456fd64251c44d1b309df9df21",
+    "target.svg": "beaf81d945db590ba304abe1d0408ca9c0ed686668de371b9401c7bc623e463c"
+  },
+  "source_original_sha256": "ffbf5a9b4884c8aaa7fca45d727f3c46bdde60b6438c8b7ddc941b09596193a4"
+}

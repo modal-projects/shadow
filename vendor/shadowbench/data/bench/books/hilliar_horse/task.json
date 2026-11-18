@@ -1,0 +1,63 @@
+{
+  "task_id": "hilliar_horse",
+  "title": "Horse",
+  "source": {
+    "author": "William J. Hilliar",
+    "title": "Novel Hand Shadows",
+    "year": 1900,
+    "url": "https://archive.org/details/novelhandshadows00hill",
+    "license": "public domain",
+    "figure": "Fig. 15"
+  },
+  "trace": {
+    "source_crop": [
+      41,
+      63,
+      465,
+      477
+    ],
+    "source_shadow_bounds": [
+      67,
+      76,
+      357,
+      424
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.33,
+        0.4,
+        0.68,
+        0.56
+      ]
+    ],
+    "source_to_screen": [
+      [
+        0.9339080459770115,
+        0.0,
+        58.011494252873575
+      ],
+      [
+        0.0,
+        0.9339080459770115,
+        -11.97701149425285
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 36,
+    "source_segmentation_threshold": 145
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.14224507283633248,
+  "known_foreground_pixels": 37037,
+  "files": {
+    "source.png": "dfd9631be243f5f0db9017317dd54c9ecdc8137c3419913941b9040d6ba3ffab",
+    "trace_review.png": "9183648c9bd77e8e00584d56ec07d9e8ea793e9b1185b5f1661a2ced90ec3aea",
+    "target.png": "b8fbbe65c2a6357bc1e1e7dba87641ef9a69554fa94f77d3e6cb4d315dddbb33",
+    "known.png": "e94c2430aee9498cc28b7115be8e060c9365788241d66c9d5ee187e354c8f19e",
+    "target.svg": "b731dce28ecd22d6cea020e82695da42014ba115f4ea226d68ae859f576ca0c9"
+  },
+  "source_original_sha256": "79faf94e7118ea827abe901f442e146db27f72b086e844c7c5f87d6563717305"
+}

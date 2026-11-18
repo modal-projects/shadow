@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_goose_prisoner",
+  "title": "The Goose a Prisoner",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 1"
+  },
+  "trace": {
+    "source_crop": [
+      199,
+      27,
+      458,
+      486
+    ],
+    "source_shadow_bounds": [
+      199,
+      125,
+      436,
+      485
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.42,
+        0.73,
+        0.72,
+        0.9
+      ]
+    ],
+    "source_to_screen": [
+      [
+        0.9027777777777778,
+        0.0,
+        -30.631944444444457
+      ],
+      [
+        0.0,
+        0.9027777777777778,
+        -53.84722222222223
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.24232656423480534,
+  "known_foreground_pixels": 21155,
+  "files": {
+    "source.png": "d2763e90e766ff8eef8ee05040d685b13eb1a399691c56b3c9169ff142a9ba0a",
+    "trace_review.png": "f820a7330dbbc28863c871f5705b47a5f9f98bad5842b79851705e7bb5f460bc",
+    "target.png": "9afd2ec417d1841c6ced241cc09c83ed689600b34da327eee880aa1289415043",
+    "known.png": "6d984b03e9bb36f0915932d95c8c255c399cdd9fc0261856707f797d06fd4723",
+    "target.svg": "03c17c273127cda5e52ed431479f93dcc1b5b2174d3a0dc6e06d4025a82cf766"
+  },
+  "source_original_sha256": "a8f8c5d826f71f00ee655d2ccdeb89f96ae321296d05720e1debdb62f4ddd1db"
+}

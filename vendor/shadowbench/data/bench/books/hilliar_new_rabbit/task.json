@@ -1,0 +1,63 @@
+{
+  "task_id": "hilliar_new_rabbit",
+  "title": "Rabbit (crouching)",
+  "source": {
+    "author": "William J. Hilliar",
+    "title": "Novel Hand Shadows",
+    "year": 1900,
+    "url": "https://archive.org/details/novelhandshadows00hill",
+    "license": "public domain",
+    "figure": "Fig. 2"
+  },
+  "trace": {
+    "source_crop": [
+      62,
+      162,
+      444,
+      396
+    ],
+    "source_shadow_bounds": [
+      87,
+      202,
+      392,
+      382
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.62,
+        0.23,
+        0.86,
+        0.44
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.4098360655737705,
+        0.0,
+        -81.65573770491801
+      ],
+      [
+        0.0,
+        1.4098360655737705,
+        -154.55737704918033
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 36,
+    "source_segmentation_threshold": 145
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.1472503139665543,
+  "known_foreground_pixels": 51605,
+  "files": {
+    "source.png": "d7199d0ce7f3b91f704bd670a22e8ccfc4db3e52ebcaa73bc6b63628f41b1de4",
+    "trace_review.png": "8bce9540264fd4b15d7246127359231ab70e178fad3aa223b05f884b36708d7c",
+    "target.png": "97d010c9d9def6d8f9ed136451be43af0e3b6f7985b1a14aa7a989b4875cce9d",
+    "known.png": "4f9b2b5ad002fdda58152e37168cd5f0665e949c49f0f419e81eb0413b4eb344",
+    "target.svg": "d253e4ac78362ee581ecfc88695310fb710329e7aecfc42b9f2128d4679114f6"
+  },
+  "source_original_sha256": "fd3d8c3e3716a1f57f2a246c40524aefe35fbdeae5d81862fdfd44f8e11bb2a3"
+}

@@ -1,0 +1,33 @@
+{
+  "source": "Ultraleap UnityPlugin GenericHand_Arm.fbx / Hand_High_Arm",
+  "commit": "08ea531c78d70364ae13d3a02467bbcb6404d582",
+  "source_sha256": "804ac654e255eb6d18783e98594c3dd7e0e1e52a21765a815b6a63283ae483f2",
+  "license": "Apache-2.0",
+  "native_skin_and_skeleton": true,
+  "retargeted_to_another_skeleton": false,
+  "conversion": "native FBX bind matrices, source units converted to meters, rigid wrist-local frame",
+  "vertices": 2062,
+  "triangles": 4084,
+  "bone_names": [
+    "Elbow",
+    "L_Wrist",
+    "L_thumb_Proximal",
+    "L_thumb_a",
+    "L_thumb_b",
+    "L_pinky_Proximal",
+    "L_pinky_b",
+    "L_pinky_c",
+    "L_ring_Proximal",
+    "L_ring_b",
+    "L_ring_c",
+    "L_middle_Proximal",
+    "L_middle_b",
+    "L_middle_c",
+    "L_index_Proximal",
+    "L_index_b",
+    "L_index_c"
+  ],
+  "source_unit_m": 0.01,
+  "normalized_skin_weights": true,
+  "maximum_source_weight_sum_error": 0.0019412325849645917
+}

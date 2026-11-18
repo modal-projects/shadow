@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_old_growler",
+  "title": "Old Growler",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 13"
+  },
+  "trace": {
+    "source_crop": [
+      14,
+      21,
+      305,
+      507
+    ],
+    "source_shadow_bounds": [
+      76,
+      182,
+      249,
+      371
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.39,
+        0.28,
+        0.69,
+        0.76
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.7195767195767195,
+        0.0,
+        -23.43121693121691
+      ],
+      [
+        0.0,
+        1.7195767195767195,
+        -253.96296296296293
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.24723997675769901,
+  "known_foreground_pixels": 33683,
+  "files": {
+    "source.png": "54cfd0a02ec6e98c8e570ddda1b5d4a54a76bbe3e216b54a9168a3321a6f3c99",
+    "trace_review.png": "333b1ab86fb86c9871e6fef7eb5583f436e78a8ff85bf39a820885890bcfe1ca",
+    "target.png": "98623bdd92678d26668ca3b22eea67c4b38c3db8e3b9adb37ea51ea3dc6cc76b",
+    "known.png": "212eadbd33f3098bccf149d20f1d7ec6f4da5863df928a0d96a32d084e248d07",
+    "target.svg": "d7fde7eddce5c29914b183d79be1e2a1af42d9fa63ec0565ab82808f12eb0dce"
+  },
+  "source_original_sha256": "f93c6d05c20667b18d157e6511f7be4e68b2f50d20942b10e33e7fde35a0df58"
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_pig",
+  "title": "Pig",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 10"
+  },
+  "trace": {
+    "source_crop": [
+      127,
+      16,
+      468,
+      486
+    ],
+    "source_shadow_bounds": [
+      127,
+      171,
+      444,
+      397
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.25,
+        0.28,
+        0.74,
+        0.66
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.3564668769716088,
+        0.0,
+        -131.27129337539435
+      ],
+      [
+        0.0,
+        1.3564668769716088,
+        -154.51735015772874
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.6666024207848277,
+  "known_foreground_pixels": 17298,
+  "files": {
+    "source.png": "650088a64dee4f63cba3c11136fc9752611c409324c6e0e36e8341d1b48d18ef",
+    "trace_review.png": "3f9e7802e94152a2d6ad084766f974c4cfea372a8b1bc65563901401ff124f3b",
+    "target.png": "abb2ff70d2ba1665b9cf31fc8ee7521a5dd29e9d5d332489ced35486153346f1",
+    "known.png": "1d4d366cfa33078173bc028e6409be661b8b0e00a0c255b06f661984d09f937f",
+    "target.svg": "f58f5fe14672a71afe48ceed96c2c3858c15065ad2a93d64ca4393c7a75b4cfc"
+  },
+  "source_original_sha256": "3516643b96e5ae32e28f690762912538c5664023ed1d18b04fd6a6ad6532b220"
+}

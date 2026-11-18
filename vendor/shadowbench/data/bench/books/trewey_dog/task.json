@@ -1,0 +1,63 @@
+{
+  "task_id": "trewey_dog",
+  "title": "Dog",
+  "source": {
+    "author": "F\u00e9licien Trewey",
+    "title": "The Art of Shadowgraphy: How It Is Done",
+    "year": 1900,
+    "url": "https://archive.org/details/artofshadowgraph00trewuoft",
+    "license": "public domain",
+    "figure": "Fig. 11"
+  },
+  "trace": {
+    "source_crop": [
+      209,
+      20,
+      413,
+      231
+    ],
+    "source_shadow_bounds": [
+      209,
+      25,
+      388,
+      216
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.48,
+        0.6,
+        0.77,
+        0.99
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.7015706806282722,
+        0.0,
+        -251.91884816753924
+      ],
+      [
+        0.0,
+        1.7015706806282722,
+        16.4607329842932
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 36,
+    "source_segmentation_threshold": 100
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.17717091132249158,
+  "known_foreground_pixels": 26816,
+  "files": {
+    "source.png": "47f66dcae6a398a3a466c8258cf984247a4091ede157c808a96f4676b505390f",
+    "trace_review.png": "1a574c000a801a8c5a6340c9b4fabd3138bff5f2908de4b6cfa7e1e473a3216d",
+    "target.png": "075826856d0bf44ea4f03f16e02673a7b1ad1004a18874c09fbd020fbcabc4fa",
+    "known.png": "30f38da1c0a891ae656775bc7e2ed9d89f00a9a781b3de7f4039142ae4478c26",
+    "target.svg": "ef71d706d77d5ddeb445d14026ac1b718d27b3097ee37d92be5f81537e150ffc"
+  },
+  "source_original_sha256": "497cb268abfc95397c183003cd07296a39151802780fea7b2cac1873f81418b0"
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_elephant",
+  "title": "An Elephant",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 8"
+  },
+  "trace": {
+    "source_crop": [
+      4,
+      64,
+      414,
+      491
+    ],
+    "source_shadow_bounds": [
+      20,
+      135,
+      383,
+      474
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.3,
+        0.36,
+        0.99,
+        0.8
+      ]
+    ],
+    "source_to_screen": [
+      [
+        0.9587020648967551,
+        0.0,
+        62.82153392330383
+      ],
+      [
+        0.0,
+        0.9587020648967551,
+        -70.42477876106193
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.3141266649179563,
+  "known_foreground_pixels": 23533,
+  "files": {
+    "source.png": "0b8c3d9bf5f416f70907e710b893bed79e02d45355144b3f8dc9c1c868aeb3a3",
+    "trace_review.png": "9fa99e164f511047c0446d392fcf6a63133b17e6f7c7e23dd6ea3d1b479077e5",
+    "target.png": "6fda693cc4351e2d12669c439b63624c4e852f861ee0f6f7ffa6dd4cec0c1be7",
+    "known.png": "2417e1d211336b25638ab2064dab840bdeb1b78563f7270c53f505363af4df9f",
+    "target.svg": "07fb681f26fc8c98856e065ff6123f538c6420c958d96f6b69ec169ed418f688"
+  },
+  "source_original_sha256": "40b87cda4896198196da624ab7d251b1f8f50f7a59030cd1f8afbe2949382fd9"
+}

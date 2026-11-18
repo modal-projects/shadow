@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_bunny",
+  "title": "Bunny",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 4"
+  },
+  "trace": {
+    "source_crop": [
+      126,
+      81,
+      451,
+      464
+    ],
+    "source_shadow_bounds": [
+      154,
+      100,
+      438,
+      429
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.26,
+        0.35,
+        0.52,
+        0.67
+      ]
+    ],
+    "source_to_screen": [
+      [
+        0.9878419452887538,
+        0.0,
+        -36.40121580547111
+      ],
+      [
+        0.0,
+        0.9878419452887538,
+        -39.78419452887539
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.13651862676578352,
+  "known_foreground_pixels": 40771,
+  "files": {
+    "source.png": "9317993236eb1f464968f5f1e30b49f20c8aa1cb4626b3c9808160eec80ab953",
+    "trace_review.png": "65f6751dae2ae6e89306e1cfe8eeca72466d1bf3b08c5680afc5f5383efd8372",
+    "target.png": "0e2a9912841d34aaa69201b597624dbb6dd3dd2fb46330b1b2c392cddb42241c",
+    "known.png": "c9b055f18e1021a1a7a6840eb94f859c291b875df2a705e7bac0b96e458886e0",
+    "target.svg": "93256ca14d1589377a4b958bb62936e4a65c0300c7e6e6d0fb6342664bbcc9c4"
+  },
+  "source_original_sha256": "aee01242625898136552116d13bb7f67e920b9a4c62ed91b0f210bb5a90f37b7"
+}

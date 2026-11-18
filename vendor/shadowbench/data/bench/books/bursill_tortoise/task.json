@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_tortoise",
+  "title": "A Tortoise",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 15"
+  },
+  "trace": {
+    "source_crop": [
+      6,
+      34,
+      413,
+      365
+    ],
+    "source_shadow_bounds": [
+      26,
+      163,
+      358,
+      305
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.38,
+        0.15,
+        0.72,
+        0.69
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.2951807228915662,
+        0.0,
+        7.325301204819311
+      ],
+      [
+        0.0,
+        1.2951807228915662,
+        -11.030120481927668
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.3040065372424723,
+  "known_foreground_pixels": 28107,
+  "files": {
+    "source.png": "bdbb65b0b89690bfee34b46a7757153e6d0998b99b8dca77c8930bebb809b6b1",
+    "trace_review.png": "30473ca13fd8bdbc68cb7ca68bd36a8587ac10300451d04b9eec1383324e01b0",
+    "target.png": "aa788d1682aac7e6bfc5214252aac21b20bdc8f45be6c1d08dbad9cdcfc8751c",
+    "known.png": "ac0ed9a6be582c7cf51146fdb2dbc593a2fd3a9c9309bad7fe7f68a1fc729fcc",
+    "target.svg": "6006e96baeb22011ad6c266ef13c00f52f813df2f831ead42dd1887cd45c3f2e"
+  },
+  "source_original_sha256": "c95787d34b50f55c14ecbba3fe3f430f659748eddc857925a71248c68695dbfe"
+}

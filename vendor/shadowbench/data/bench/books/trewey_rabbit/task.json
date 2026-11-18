@@ -1,0 +1,63 @@
+{
+  "task_id": "trewey_rabbit",
+  "title": "Rabbit",
+  "source": {
+    "author": "F\u00e9licien Trewey",
+    "title": "The Art of Shadowgraphy: How It Is Done",
+    "year": 1900,
+    "url": "https://archive.org/details/artofshadowgraph00trewuoft",
+    "license": "public domain",
+    "figure": "Fig. 9"
+  },
+  "trace": {
+    "source_crop": [
+      4,
+      4,
+      229,
+      231
+    ],
+    "source_shadow_bounds": [
+      38,
+      10,
+      229,
+      179
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.29,
+        0.68,
+        0.56,
+        0.99
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.9230769230769231,
+        0.0,
+        -0.7307692307692264
+      ],
+      [
+        0.0,
+        1.9230769230769231,
+        39.769230769230774
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 36,
+    "source_segmentation_threshold": 100
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.01994804230840601,
+  "known_foreground_pixels": 52815,
+  "files": {
+    "source.png": "7f126add95217e0e2549970d62b50c8cb07854a0e92957c4e6ecf56946cf1fd3",
+    "trace_review.png": "ba818db3057f64893fb53a1ac72ad008c47e64e6e0cf5926544b05639b7be568",
+    "target.png": "2026a1508a854ef7ea8a2879d7d9f66be356b875990ad7b33f6f3d3a2ac318d0",
+    "known.png": "855db95b72e8fec5677ea89469831483e71548b36d4b54fc63d0e17cf8ef7319",
+    "target.svg": "15ad9bfb0002f3a1f233121692705e3f876760dd95caf8074db30c0a4e3f7c49"
+  },
+  "source_original_sha256": "dc81398a1157c5dc87d59556e76ce0d62e451a8f2dc5f8131e9293f3528e00f3"
+}

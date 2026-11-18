@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_portrait",
+  "title": "A Portrait (donkey)",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 12"
+  },
+  "trace": {
+    "source_crop": [
+      131,
+      27,
+      465,
+      513
+    ],
+    "source_shadow_bounds": [
+      131,
+      150,
+      432,
+      420
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.26,
+        0.2,
+        0.77,
+        0.65
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.2037037037037037,
+        0.0,
+        -82.84259259259261
+      ],
+      [
+        0.0,
+        1.2037037037037037,
+        -121.55555555555554
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.533812729498164,
+  "known_foreground_pixels": 24376,
+  "files": {
+    "source.png": "186a0da6c6b232566b1e046fbfcf2569b23f4fb5d675751d8556e1d1a6ff3a86",
+    "trace_review.png": "6ffa4fe8a20fa5b09fe3334ae27e8389d56b033b072b72d6344a757cb5eb7345",
+    "target.png": "7bca3ca11f3c81abd707476e8b09a6d3f34422999da1377f05f52aed959ed6cc",
+    "known.png": "c6b2e803c3b5a1e11c153e8d51206c3a550b4e6fe329cfd990a7c22a6d18d2fc",
+    "target.svg": "c0f6c47fdc27d36f8e7950fd21ddaebedc2683a4e7d35e02fe646a1ce3a34a9e"
+  },
+  "source_original_sha256": "720de4d3d0956c8d98a9f7a3bc36bd8244bdb3106431e572a3efa94c070a28bd"
+}

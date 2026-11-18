@@ -1,0 +1,63 @@
+{
+  "task_id": "trewey_elephant",
+  "title": "Elephant",
+  "source": {
+    "author": "F\u00e9licien Trewey",
+    "title": "The Art of Shadowgraphy: How It Is Done",
+    "year": 1900,
+    "url": "https://archive.org/details/artofshadowgraph00trewuoft",
+    "license": "public domain",
+    "figure": "Fig. 13"
+  },
+  "trace": {
+    "source_crop": [
+      15,
+      13,
+      278,
+      259
+    ],
+    "source_shadow_bounds": [
+      59,
+      38,
+      264,
+      231
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.28,
+        0.63,
+        0.54,
+        0.99
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.6839378238341969,
+        0.0,
+        -15.955958549222771
+      ],
+      [
+        0.0,
+        1.6839378238341969,
+        -4.989637305699489
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 36,
+    "source_segmentation_threshold": 100
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.17608529355517308,
+  "known_foreground_pixels": 51699,
+  "files": {
+    "source.png": "d3cfeb98077e0df903b2632370083cb1685c8093e8f40c98113d111129577037",
+    "trace_review.png": "225044c9a3bc379ddcaf6c81f21daef7c2146defcec1e327af65760a064f7390",
+    "target.png": "5656d191ce235711c7e59bd8a2d3611cd0e389de4a02b257d32958e37c454b83",
+    "known.png": "165bc5483ab10a6d1d73da81dab9beb360b5cb573c1f8e1bae035e61e3d0aafa",
+    "target.svg": "535368d5755fb6daf526645a2d787172c35ee2a6d13840a9e7295d957aa27031"
+  },
+  "source_original_sha256": "f7eacebb1cff3cc45fbe780bf717f9872bab26d351b826f03982ac300c9196d2"
+}

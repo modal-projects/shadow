@@ -1,0 +1,63 @@
+{
+  "task_id": "bursill_grandpapa",
+  "title": "Grandpapa",
+  "source": {
+    "author": "Henry Bursill",
+    "title": "Hand Shadows to be Thrown upon the Wall",
+    "year": 1859,
+    "url": "https://www.gutenberg.org/ebooks/12962",
+    "license": "public domain",
+    "figure": "Plate 3"
+  },
+  "trace": {
+    "source_crop": [
+      182,
+      27,
+      463,
+      491
+    ],
+    "source_shadow_bounds": [
+      182,
+      190,
+      364,
+      386
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.38,
+        0.22,
+        0.73,
+        0.75
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.6581632653061225,
+        0.0,
+        -196.67857142857144
+      ],
+      [
+        0.0,
+        1.6581632653061225,
+        -256.05102040816325
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 11,
+    "source_segmentation_threshold": 205
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.9487191966386009,
+  "known_foreground_pixels": 3161,
+  "files": {
+    "source.png": "4e26bdb8c8c45507c5a8c8894c646021dd38ca82245da339e6a50bb92d277091",
+    "trace_review.png": "5210cd7f989d9b8515e42057f49f5293c53093612aa7e5085ec6656351ee35d4",
+    "target.png": "fcbb6c720b2d4669c85fec280db9643c9331419f5ed59d9d178c79e902cebf92",
+    "known.png": "4a57d5564b2644a1d382a2f04cd376bb565e0f701d41c084db05975ccf0e4e95",
+    "target.svg": "6c4d26a4b08d4da36247dda5d299b7ab73b9804be11bd7762dab9d14516378c5"
+  },
+  "source_original_sha256": "aae623977e4a761009e8d527e3799d9bace24d50926646f464e299fb06ee1a86"
+}

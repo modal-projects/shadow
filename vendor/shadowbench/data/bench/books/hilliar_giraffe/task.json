@@ -1,0 +1,63 @@
+{
+  "task_id": "hilliar_giraffe",
+  "title": "Giraffe",
+  "source": {
+    "author": "William J. Hilliar",
+    "title": "Novel Hand Shadows",
+    "year": 1900,
+    "url": "https://archive.org/details/novelhandshadows00hill",
+    "license": "public domain",
+    "figure": "Fig. 10"
+  },
+  "trace": {
+    "source_crop": [
+      26,
+      72,
+      392,
+      720
+    ],
+    "source_shadow_bounds": [
+      104,
+      142,
+      240,
+      622
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.08,
+        0.58,
+        0.4,
+        0.82
+      ]
+    ],
+    "source_to_screen": [
+      [
+        0.6770833333333334,
+        0.0,
+        139.54166666666666
+      ],
+      [
+        0.0,
+        0.6770833333333334,
+        -37.14583333333337
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 36,
+    "source_segmentation_threshold": 145
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.1826123629352934,
+  "known_foreground_pixels": 13567,
+  "files": {
+    "source.png": "59748f6e9e6c65c46c72ac99cc3d9f6323431797c4004a8de80af39880df1076",
+    "trace_review.png": "0a980c962f9258ae1f6185c3ba976ca53ac2c194db4e75b8ea76e0d2c68b7d97",
+    "target.png": "147e07461e8e3e0832bf1858dd4089d1fa8d6a596fa439b8c23848495af4ce6d",
+    "known.png": "63b03b0dda64c7395f9e8d4b231b2bc9ebe7274daeb588ab54d441e34196c6f4",
+    "target.svg": "85eb470cbbe9b92d5096f6759683f6498a439c25e40425f5d962457e87455683"
+  },
+  "source_original_sha256": "71ec830cbec6a53a829673868bf96c1ffe6b957a609aa543aaa43563a39cfcc3"
+}

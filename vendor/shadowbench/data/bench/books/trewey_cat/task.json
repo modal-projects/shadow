@@ -1,0 +1,63 @@
+{
+  "task_id": "trewey_cat",
+  "title": "Cat",
+  "source": {
+    "author": "F\u00e9licien Trewey",
+    "title": "The Art of Shadowgraphy: How It Is Done",
+    "year": 1900,
+    "url": "https://archive.org/details/artofshadowgraph00trewuoft",
+    "license": "public domain",
+    "figure": "Fig. 15"
+  },
+  "trace": {
+    "source_crop": [
+      5,
+      5,
+      258,
+      270
+    ],
+    "source_shadow_bounds": [
+      91,
+      29,
+      228,
+      259
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.28,
+        0.57,
+        0.5,
+        0.99
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.4130434782608696,
+        0.0,
+        30.619565217391283
+      ],
+      [
+        0.0,
+        1.4130434782608696,
+        18.021739130434753
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 36,
+    "source_segmentation_threshold": 100
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.3203523693803159,
+  "known_foreground_pixels": 22374,
+  "files": {
+    "source.png": "f49cc4ba503fcc133252de26ee97ebd61f1e1df50d4a2c10f3c28bb60a7c2587",
+    "trace_review.png": "c75895f7c6e714a4caf8eff7df51312f0a2aa41c2d818fea98f8beddfdeaf1b1",
+    "target.png": "9bcbd8a30e4effbe955e2461cf74750f3860c1400bcc65c1c8458d25f8bdc436",
+    "known.png": "0ec731af39fc8ffe775664977957e7edf27c43396af9633dde310cedd7a53a67",
+    "target.svg": "690e2b19cf380acd68869f7681e9269f18a7dc2e3202b3dfd2da9d566432aff7"
+  },
+  "source_original_sha256": "6bb5d08960dc4f40dc22f5d416029721a7ddaa202e994dad8398c1f44daebfa8"
+}

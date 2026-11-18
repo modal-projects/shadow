@@ -1,0 +1,196 @@
+{
+  "version": 3,
+  "tasks": [
+    {
+      "task_id": "bursill_bird_in_flight",
+      "title": "A Bird in Flight",
+      "trace_status": "partly_occluded",
+      "sha256": "33cb672c6168a4441dd55255e35c13c4f6450fbd9336a31b6cbfb611603ff656"
+    },
+    {
+      "task_id": "bursill_bruin",
+      "title": "Bruin",
+      "trace_status": "unoccluded",
+      "sha256": "96c62710e204caf040e1a69f4b6935b1e26a5ea5bf11596de7439f29c341b5de"
+    },
+    {
+      "task_id": "bursill_bunny",
+      "title": "Bunny",
+      "trace_status": "partly_occluded",
+      "sha256": "620bab9e6220170262b56ce582f27c2419cdad57703178baa17dd4b3482b9eeb"
+    },
+    {
+      "task_id": "bursill_dog_toby",
+      "title": "Dog Toby",
+      "trace_status": "unoccluded",
+      "sha256": "afc339ecd145fa7126f24d8993d92d7467e793fd378b868343ac827af573183c"
+    },
+    {
+      "task_id": "bursill_elephant",
+      "title": "An Elephant",
+      "trace_status": "partly_occluded",
+      "sha256": "a0032e9ac1179ce9376c1916bfd9500af08bc76849d14e598e8f469afca28f08"
+    },
+    {
+      "task_id": "bursill_goose_prisoner",
+      "title": "The Goose a Prisoner",
+      "trace_status": "partly_occluded",
+      "sha256": "3360eb5390464d9a416066f35aeab199522b055694d399584767981bb62e12f0"
+    },
+    {
+      "task_id": "bursill_greyhound",
+      "title": "Greyhound",
+      "trace_status": "unoccluded",
+      "sha256": "81160ca91528500c325afcd76f94fd0c96bb55f353326bb8ed62fe7d12cf59b7"
+    },
+    {
+      "task_id": "bursill_old_growler",
+      "title": "Old Growler",
+      "trace_status": "partly_occluded",
+      "sha256": "4da38027f2c12b16a2e34ca837259adf2835a9a2fc94b827ee82a5ee97f2296e"
+    },
+    {
+      "task_id": "bursill_tortoise",
+      "title": "A Tortoise",
+      "trace_status": "partly_occluded",
+      "sha256": "0739e1effb473ab8cb5525a9eea0adf4a8053430635517ba11d51bfe0962536e"
+    },
+    {
+      "task_id": "hilliar_dog",
+      "title": "Dog",
+      "trace_status": "unoccluded",
+      "sha256": "489a532e0359b2a6c29f135bcbd4b0d271f0892ae297d495c6682d2d58223782"
+    },
+    {
+      "task_id": "hilliar_fowl",
+      "title": "Fowl",
+      "trace_status": "unoccluded",
+      "sha256": "830612d6b9970fdb206d157fbc656293acd3f6c1a1852b80de29b6c7c203f779"
+    },
+    {
+      "task_id": "hilliar_giraffe",
+      "title": "Giraffe",
+      "trace_status": "partly_occluded",
+      "sha256": "0d6a9cf60a23208469ae42ed33d141f32d4a493b9c746be71a6fb03f9ae79d6c"
+    },
+    {
+      "task_id": "hilliar_horse",
+      "title": "Horse",
+      "trace_status": "partly_occluded",
+      "sha256": "5b1ea354c8c848108487475710f8d565e2f6faaf0861cd613bccceb81960de3b"
+    },
+    {
+      "task_id": "hilliar_new_rabbit",
+      "title": "Rabbit (crouching)",
+      "trace_status": "partly_occluded",
+      "sha256": "edbc1d238b3d28763951efaf6ce59c6d15dfc9f0a1415c353d2142e29ce98ae4"
+    },
+    {
+      "task_id": "trewey_barking_dog",
+      "title": "Barking Dog",
+      "trace_status": "partly_occluded",
+      "sha256": "17d3cb0b1805a310324a24b6d5eea8a3355873a38ec7135bd60bba49cf78d26d"
+    },
+    {
+      "task_id": "trewey_bird",
+      "title": "Bird",
+      "trace_status": "partly_occluded",
+      "sha256": "27058251fceaa44fabfc14242488f83a4a8986f2f31e35928cea54c7444174cb"
+    },
+    {
+      "task_id": "trewey_cat",
+      "title": "Cat",
+      "trace_status": "partly_occluded",
+      "sha256": "ef9321db24e168006818f8565af2a0af3479dc46d95bfd60d5a389a6a1098676"
+    },
+    {
+      "task_id": "trewey_dog",
+      "title": "Dog",
+      "trace_status": "partly_occluded",
+      "sha256": "a36f60abed49a4eb8d09dcb9ae3db94126e6626c92dd83b58ee040cbf3d92450"
+    },
+    {
+      "task_id": "trewey_elephant",
+      "title": "Elephant",
+      "trace_status": "partly_occluded",
+      "sha256": "5636efe6c17f2b57f85f5d60544054176f4d9687c55a4c98973fd5a6f6fe5dd0"
+    },
+    {
+      "task_id": "trewey_rabbit",
+      "title": "Rabbit",
+      "trace_status": "partly_occluded",
+      "sha256": "275d96d75076bec922f69a41e7da6e2673405bd96ddea78a4782af5bc821e858"
+    },
+    {
+      "task_id": "trewey_swan",
+      "title": "Swan",
+      "trace_status": "unoccluded",
+      "sha256": "646fd30d32989f013a82e7b60757b93804801a33b314d6410aaef33531ca183c"
+    }
+  ],
+  "excluded": [
+    {
+      "task_id": "bursill_boy",
+      "title": "Boy",
+      "trace_status": "partly_occluded",
+      "sha256": "06d0f3566e400e2997248bc81dcd168743e765f23f88df7e45439cdc80a66f3d",
+      "reason": "too much source shadow is occluded/ambiguous; do not invent its contour"
+    },
+    {
+      "task_id": "bursill_camel",
+      "title": "Camel",
+      "trace_status": "partly_occluded",
+      "sha256": "c8c5108078588a68f84928cc16174bfd83c7e011d9314df5df093e9fcc2f909d",
+      "reason": "too much source shadow is occluded/ambiguous; do not invent its contour"
+    },
+    {
+      "task_id": "bursill_camel_head",
+      "title": "Head of a Camel",
+      "trace_status": "partly_occluded",
+      "sha256": "716af258b9dae41bf4e02f69b9ef4d8f3481521cf7476b5f4695ac2b13044894",
+      "reason": "too much source shadow is occluded/ambiguous; do not invent its contour"
+    },
+    {
+      "task_id": "bursill_deer",
+      "title": "Deer",
+      "trace_status": "partly_occluded",
+      "sha256": "5a0e7b1c6bcd1204b36b32030dbeae3b39d325e0102643a88052a11cbbf38881",
+      "reason": "too much source shadow is occluded/ambiguous; do not invent its contour"
+    },
+    {
+      "task_id": "bursill_fright",
+      "title": "Fright",
+      "trace_status": "partly_occluded",
+      "sha256": "00171451d8832f9f2b49ded2355181e0e435f93fca67f9fa807a8b210f3b85d1",
+      "reason": "too much source shadow is occluded/ambiguous; do not invent its contour"
+    },
+    {
+      "task_id": "bursill_goat",
+      "title": "Goat",
+      "trace_status": "partly_occluded",
+      "sha256": "e7fa0911710c565176856c893abddc19b7faefc54ea9e6d68d13437fee1b544c",
+      "reason": "too much source shadow is occluded/ambiguous; do not invent its contour"
+    },
+    {
+      "task_id": "bursill_grandpapa",
+      "title": "Grandpapa",
+      "trace_status": "partly_occluded",
+      "sha256": "253e87d9612e19d91532d4e1cc4889cc632129c21d8808fe24b2eaac062351da",
+      "reason": "too much source shadow is occluded/ambiguous; do not invent its contour"
+    },
+    {
+      "task_id": "bursill_pig",
+      "title": "Pig",
+      "trace_status": "partly_occluded",
+      "sha256": "645b19e3c8651cf5cedadce4b4756a1d47f9bab45b7e673686188a3e123e83a1",
+      "reason": "too much source shadow is occluded/ambiguous; do not invent its contour"
+    },
+    {
+      "task_id": "bursill_portrait",
+      "title": "A Portrait (donkey)",
+      "trace_status": "partly_occluded",
+      "sha256": "64544bca5fe717471d42968e2f5a42d51f0451796c1831b14a0b1e59bf0c54f1",
+      "reason": "too much source shadow is occluded/ambiguous; do not invent its contour"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "trewey_bird",
+  "title": "Bird",
+  "source": {
+    "author": "F\u00e9licien Trewey",
+    "title": "The Art of Shadowgraphy: How It Is Done",
+    "year": 1900,
+    "url": "https://archive.org/details/artofshadowgraph00trewuoft",
+    "license": "public domain",
+    "figure": "Fig. 14"
+  },
+  "trace": {
+    "source_crop": [
+      5,
+      5,
+      273,
+      253
+    ],
+    "source_shadow_bounds": [
+      36,
+      50,
+      253,
+      218
+    ],
+    "source_unknown_rectangles": [
+      [
+        0.17,
+        0.59,
+        0.52,
+        0.94
+      ]
+    ],
+    "source_to_screen": [
+      [
+        1.9345238095238095,
+        0.0,
+        -23.53869047619048
+      ],
+      [
+        0.0,
+        1.9345238095238095,
+        -37.72619047619048
+      ]
+    ],
+    "perspective_correction": "none; scan treated as planar artwork",
+    "minimum_eye_hole_source_pixels": 36,
+    "source_segmentation_threshold": 100
+  },
+  "kind": "fixed_book_silhouette",
+  "reference_pose": null,
+  "solvability": "not established; continuous reconstruction challenge",
+  "trace_status": "partly_occluded",
+  "uncertain_foreground_fraction": 0.14992610623315658,
+  "known_foreground_pixels": 48892,
+  "files": {
+    "source.png": "c1c1898ded0143c8ab4131f5ba2e65dd1dec776e73a71600df013bb48213fc53",
+    "trace_review.png": "dce0c19e49a7c250352be69f064b01b919cf11811ff37cf07598f6338c54bf81",
+    "target.png": "6552a1074d8133cfc709badf22ced2f1f0a9962d61d0ea7bad4c85fc388d7bb8",
+    "known.png": "13acdf58fcc123471f430885902cff6bfba245badbb189096981ca58dbc480f8",
+    "target.svg": "640f2b9bdcd1b250d3e6725f3f4bc15ce163e81233a09d5a629d9cf927665763"
+  },
+  "source_original_sha256": "d28669705f9253e98e87cc095d2b35f70620f321a0ea26ed944e44753af386de"
+}
