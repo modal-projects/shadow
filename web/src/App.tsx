@@ -107,7 +107,7 @@ function App() {
       const t0 = performance.now();
       const tick = (now: number) => {
         if (finished.current || runId.current !== run) return;
-        const t = Math.min(1, (now - t0) / ROUND_MS);
+        const t = Math.max(0, Math.min(1, (now - t0) / ROUND_MS));
         stage.current?.pose(blend(frames, t), true);
         if (t < 1) requestAnimationFrame(tick);
       };
@@ -233,7 +233,7 @@ function Grid() {
       const t0 = performance.now();
       const tick = (now: number) => {
         if (cancelled) return;
-        const t = Math.min(1, (now - t0) / ROUND_MS);
+        const t = Math.max(0, Math.min(1, (now - t0) / ROUND_MS));
         sets.forEach((frames, k) => stages.current[k]?.pose(blend(frames, t), true));
         if (t < 1) requestAnimationFrame(tick);
       };
