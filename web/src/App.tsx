@@ -162,6 +162,12 @@ function App() {
           <svg className="spin" aria-label="Judging" role="status" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.56" /></svg>
         )}
       </div>
+      {!bare && <header>
+        <div className="head-meta">
+          <span className="eyebrow"><a href="https://modal.com/library/qwen/qwen3-8-max-vl" target="_blank" rel="noreferrer">Qwen3.8 Max VL</a></span>
+          <span className="modal-line">on <a className="modal-link" href="https://modal.com" target="_blank" rel="noreferrer" aria-label="Modal"><img className="modal-logo" src="/modal-logo.png" alt="Modal" /></a></span>
+        </div>
+      </header>}
       {!bare && (active || reveal || error) && (
         <form className="prompt" onSubmit={(event) => { event.preventDefault(); submit(); }}>
           <div className={`reply${reveal ? " revealed" : ""}`} role="status">
