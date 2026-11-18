@@ -254,6 +254,7 @@ app = modal.App("shadow-demo")
     secrets=[modal.Secret.from_name("shadow-endpoints", environment_name="demos")],
     volumes={"/replays": REPLAYS_VOLUME},
     timeout=1800,
+    min_containers=1,
 )
 @modal.concurrent(max_inputs=8)
 @modal.asgi_app(requires_proxy_auth=False, custom_domains=["shadow.modal.dev"])
