@@ -187,10 +187,6 @@ def create_web(static_dir=None):
     def round_():
         return {"round": secrets.randbelow(len(replays()))}
 
-    @web.get("/api/grid")
-    def grid():
-        return {"rounds": secrets.SystemRandom().sample(range(len(replays())), 9)}
-
     @web.post("/api/guess")
     def guess(body: Guess):
         index = replays()

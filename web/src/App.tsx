@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import Stage from "./Stage";
 import type { StageControls } from "./Stage";
@@ -56,8 +56,6 @@ function App() {
   const runId = useRef(0);
   const timers = useRef<number[]>([]);
   const finished = useRef(false);
-  const bare = new URLSearchParams(window.location.search).has("bare");
-  const grid = new URLSearchParams(window.location.search).has("grid");
 
   const clearTimers = () => {
     timers.current.forEach((timer) => window.clearTimeout(timer));
@@ -73,13 +71,6 @@ function App() {
   const onReady = useCallback((controls: StageControls) => {
     stage.current = controls;
     setReady(true);
-    if (!new URLSearchParams(window.location.search).has("bare")) return;
-    if (window.parent !== window) {
-      window.parent.postMessage("shadow:ready", "*");
-      window.addEventListener("message", (event) => {
-        if (event.data === "shadow:start") start();
-      });
-    } else start();
   }, []);
 
   async function start() {
@@ -165,31 +156,27 @@ function App() {
     }
   }
 
-  if (grid) return <Grid />;
-
   return (
     <main>
       <Stage onError={setError} onReady={onReady} />
       <div className="game-control">
-        {loading && !bare && (
+        {loading && (
           <svg className="spin" aria-label="Loading replay" role="status" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.56" /></svg>
         )}
-        {!bare && (!active || reveal) && !judging && !loading && (
+        {(!active || reveal) && !judging && !loading && (
           <button type="button" className="start" disabled={!ready} onClick={start}>
             {reveal || slot.current !== null ? "Play again" : "Start"}
           </button>
         )}
-        {judging && (
-          <svg className="spin" aria-label="Judging" role="status" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.56" /></svg>
-        )}
+
       </div>
-      {!bare && <header>
+      <header>
         <div className="head-meta">
           <span className="eyebrow"><a href="https://modal.com/library/deepseek/deepseek-v4-1-flash-1017" target="_blank" rel="noreferrer">DeepSeek V4.1 Flash 1017</a></span>
           <span className="modal-line">on <a className="modal-link" href="https://modal.com" target="_blank" rel="noreferrer" aria-label="Modal"><img className="modal-logo" src="/modal-logo.png" alt="Modal" /></a></span>
         </div>
-      </header>}
-      {!bare && (active || reveal || error) && (
+      </header>
+      {(active || reveal || error) && (
         <form className="prompt" onSubmit={(event) => { event.preventDefault(); submit(); }}>
           <div className={`reply${reveal ? " revealed" : ""}`} role="status">
             {reveal ? reveal.reply : notice || " "}
@@ -204,55 +191,6 @@ function App() {
           {error && <div className="speech-error" role="alert">{error}</div>}
         </form>
       )}
-    </main>
-  );
-}
-
-function Grid() {
-  const [, setError] = useState("");
-  const stages = useRef<(StageControls | null)[]>(Array.from({ length: 9 }));
-  const ready = useMemo(
-    () =>
-      Array.from({ length: 9 }, (_, i) => (controls: StageControls) => {
-        stages.current[i] = controls;
-      }),
-    [],
-  );
-
-  useEffect(() => {
-    let cancelled = false;
-    const run = async () => {
-      const { rounds } = (await (await fetch("/api/grid")).json()) as { rounds: number[] };
-      const sets = await Promise.all(
-        rounds.map(async (slot) =>
-          decodeReplay(await (await fetch(`/replays/${slot}.bin`)).arrayBuffer()),
-        ),
-      );
-      if (cancelled) return;
-      stages.current.forEach((s) => s?.reset());
-      const t0 = performance.now();
-      const tick = (now: number) => {
-        if (cancelled) return;
-        const t = Math.max(0, Math.min(1, (now - t0) / ROUND_MS));
-        sets.forEach((frames, k) => stages.current[k]?.pose(blend(frames, t), true));
-        if (t < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    };
-    const poll = () => {
-      if (cancelled) return;
-      if (stages.current.every(Boolean)) run().catch(() => setError("Could not load the replays."));
-      else window.setTimeout(poll, 100);
-    };
-    poll();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  return (
-    <main className="grid">
-      {ready.map((onReady, i) => <Stage key={i} onError={setError} onReady={onReady} />)}
     </main>
   );
 }
