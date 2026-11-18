@@ -58,7 +58,13 @@ function App() {
   const onReady = useCallback((controls: StageControls) => {
     stage.current = controls;
     setReady(true);
-    if (new URLSearchParams(window.location.search).has("bare")) start();
+    if (!new URLSearchParams(window.location.search).has("bare")) return;
+    if (window.parent !== window) {
+      window.parent.postMessage("shadow:ready", "*");
+      window.addEventListener("message", (event) => {
+        if (event.data === "shadow:start") start();
+      });
+    } else start();
   }, []);
 
   async function start() {
