@@ -163,6 +163,16 @@ def create_web(static_dir=None):
         return json.loads((REPLAYS_DIR / "index.json").read_text())
 
     web = FastAPI()
+    from starlette.middleware.gzip import GZipMiddleware
+
+    @web.middleware("http")
+    async def no_cache_html(request, call_next):
+        response = await call_next(request)
+        if request.url.path in ("/", "/index.html"):
+            response.headers["Cache-Control"] = "no-cache"
+        return response
+
+    web.add_middleware(GZipMiddleware, minimum_size=1024)
 
     @web.get("/api/round")
     def round_():
