@@ -5,7 +5,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
 
 type Side = "left" | "right";
-export type StageControls = { pose: (vertices: Float32Array[]) => void; reset: () => void };
+export type StageControls = { pose: (vertices: Float32Array[], immediate?: boolean) => void; reset: () => void };
 type Rig = Record<"vertices" | "faces", Record<Side, string>>;
 
 function decode(value: string) {
