@@ -136,7 +136,7 @@ function App() {
         setLoading(false);
       } else {
         previous.current = [...previous.current, text];
-        setNotice(verdict.reply || "Keep watching.");
+        setNotice(verdict.reply);
       }
       if (!giveUp) setGuess("");
     } catch {
@@ -171,12 +171,7 @@ function App() {
       {!bare && (active || reveal || error) && (
         <form className="prompt" onSubmit={(event) => { event.preventDefault(); submit(); }}>
           <div className={`reply${reveal ? " revealed" : ""}`} role="status">
-            {reveal
-              ? reveal.reply ||
-                (reveal.won
-                  ? `You got it! It was "${reveal.subject}".`
-                  : `It was "${reveal.subject}".`)
-              : notice || " "}
+            {reveal ? reveal.reply : notice || " "}
           </div>
           {active && !reveal && (
             <div className="composer">

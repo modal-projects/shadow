@@ -200,10 +200,7 @@ def create_web(static_dir=None):
             try:
                 _, reply = judge(subject, guess_text, body.previous, True, 0)
             except Exception:
-                reply = f'It was "{subject}".'
-            words = [w for w in re.findall(r"[a-z]+", subject.lower()) if len(w) > 3]
-            if not any(w in reply.lower() for w in words):
-                reply = f'It was "{subject}".'
+                raise HTTPException(502, "judge unavailable")
             return {"correct": False, "reply": reply, "subject": subject}
         try:
             correct, reply = judge(
