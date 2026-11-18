@@ -1,6 +1,6 @@
 # shadow
 
-play charades with Kimi K3.1 Pro
+play charades with Deepseek v4.1 Flash 1017
 
 ```bash
 # demo
