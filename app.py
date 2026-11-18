@@ -31,10 +31,13 @@ JUDGE_SYSTEM = (
     "matches Bunny, bird matches A Bird in Flight, bear matches Bruin, "
     "donkey matches A Portrait (donkey). Answer with only a JSON object "
     '{"correct": bool, "reply": "one short sentence to the player"}. For a '
-    "wrong guess the reply contains a subtle hint (a category, scale, or "
-    "defining feature), different from hints implied by previous guesses, "
-    "and never names the subject; end the reply with \"<guesses_left> "
-    "guesses left.\" For a correct guess acknowledge the win. "
+    "wrong guess the reply contains a hint that never names the subject "
+    "and differs from hints implied by previous guesses; make the hint "
+    "progressively more revealing as guesses_left shrinks — a broad "
+    "category or scale while several guesses remain, defining features "
+    "as they dwindle, a near-giveaway on the last guess. End the reply "
+    "with \"<guesses_left> guesses left.\" For a correct guess "
+    "acknowledge the win. "
     "If give_up is true set correct to false and reveal the subject in one "
     "sentence."
 )
@@ -187,7 +190,7 @@ def create_web(static_dir=None):
         if body.give_up:
             return {
                 "correct": False,
-                "reply": f"It was {subject}.",
+                "reply": f'It was "{subject}".',
                 "subject": subject,
             }
         guess_text = body.guess.strip()
@@ -196,7 +199,7 @@ def create_web(static_dir=None):
         if len(body.previous) >= MAX_WRONG:
             return {
                 "correct": False,
-                "reply": f"Out of guesses. It was {subject}.",
+                "reply": f'Out of guesses. It was "{subject}".',
                 "subject": subject,
             }
         try:

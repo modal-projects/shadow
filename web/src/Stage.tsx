@@ -105,31 +105,8 @@ export default function Stage({ onError, onReady }: {
 
     const hands: THREE.Mesh[] = [];
     let transition: { start: number; from: Float32Array[]; to: Float32Array[] } | null = null;
-    let idle = false;
-    let idleFrames: Float32Array[][] = [];
-    const idleLoopMs = 4000;
-
-    function wiggle(time: number) {
-      const count = idleFrames.length;
-      if (!count) return;
-      const t = ((time % idleLoopMs) / idleLoopMs) * count;
-      const f0 = Math.floor(t) % count;
-      const f1 = (f0 + 1) % count;
-      const frac = t - Math.floor(t);
-      hands.forEach((hand, side) => {
-        const position = hand.geometry.getAttribute("position");
-        const array = position.array as Float32Array;
-        const a = idleFrames[f0][side];
-        const b = idleFrames[f1][side];
-        for (let i = 0; i < array.length; i++) array[i] = a[i] + (b[i] - a[i]) * frac;
-        position.needsUpdate = true;
-        hand.geometry.computeVertexNormals();
-      });
-      renderer.shadowMap.needsUpdate = true;
-    }
 
     function pose(to: Float32Array[], immediate = false) {
-      idle = false;
       transition = {
         start: performance.now(),
         from: hands.map((hand) => (hand.geometry.getAttribute("position").array as Float32Array).slice()),
@@ -154,26 +131,6 @@ export default function Stage({ onError, onReady }: {
       if (amount === 1) transition = null;
     }
 
-    fetch("/idle.bin", { signal: abort.signal })
-      .then((response) => (response.ok ? response.arrayBuffer() : null))
-      .then((buffer) => {
-        if (!buffer || abort.signal.aborted) return;
-        const header = new Int32Array(buffer, 0, 2);
-        const [count, vertices] = header;
-        const frames = new Int16Array(buffer, 8);
-        for (let f = 0; f < count; f++) {
-          const pair: Float32Array[] = [];
-          for (let side = 0; side < 2; side++) {
-            const offset = (f * 2 + side) * vertices * 3;
-            const frame = new Float32Array(vertices * 3);
-            for (let i = 0; i < frame.length; i++) frame[i] = frames[offset + i] / 10000;
-            pair.push(frame);
-          }
-          idleFrames.push(pair);
-        }
-      })
-      .catch(() => {});
-
     fetch("/rig.json", { signal: abort.signal })
       .then((response) => {
         if (!response.ok) throw new Error(`Rig request failed (${response.status})`);
@@ -197,7 +154,7 @@ export default function Stage({ onError, onReady }: {
         const rest = (["left", "right"] as const).map(
           (side) => new Float32Array(decode(rig.vertices[side])),
         );
-        onReady({ pose, reset: () => { pose(rest, true); idle = true; } });
+        onReady({ pose, reset: () => { pose(rest, true); } });
       })
       .catch((error: Error) => {
         if (!abort.signal.aborted) onError(error.message);
@@ -213,8 +170,7 @@ export default function Stage({ onError, onReady }: {
     });
     resize.observe(element);
     renderer.setAnimationLoop((time) => {
-      if (idle) wiggle(time);
-      else if (transition) {
+      if (transition) {
         update(Math.max(0, Math.min(1, (time - transition.start) / 500)));
       }
       controls.update();

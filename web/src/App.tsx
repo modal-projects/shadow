@@ -174,8 +174,8 @@ function App() {
             {reveal
               ? reveal.reply ||
                 (reveal.won
-                  ? `You got it! It was ${reveal.subject}`
-                  : `It was ${reveal.subject}`)
+                  ? `You got it! It was "${reveal.subject}".`
+                  : `It was "${reveal.subject}".`)
               : notice || " "}
           </div>
           {active && !reveal && (
